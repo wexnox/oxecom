@@ -40,6 +40,16 @@ class ClientController extends Controller
 //        return view('shop.index',['products' => $products]);
     }
 
+    // TODO: Denna må da være litt feil på
+    public function indexProduct(Request $request, $id) {
+        $products = Product::findOrFail($request);
+        $categories = Category::all();
+        $subCategories = SubCategories::all();
+        return view ('products.index', $products)
+            ->with(['products' => $products])
+            ->with(['categories' => $categories])
+            ->with(['subCategories' => $subCategories]);
+    }
     public function show($id)
     {
         // get the product
