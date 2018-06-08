@@ -29,21 +29,17 @@
                         <i class="fas fa-list"></i> Alle produkter</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{--@foreach($categories as $category)--}}
-                            {{--<a class="dropdown-item" href="{{ route('product.index', $category->name ) }}"> {{ $category->name }}</a>--}}
+                        @foreach($categories as $category)
+                            <a class="dropdown-item" href="{{ route('product.index', $category->name ) }}"> {{ $category->name }}</a>
                             {{--@foreach($category->subCategories as $subCategory)--}}
 
-                                {{--<a class="dropdown-item" href="#">{{ $subCategory->name }}</a>--}}
-                                {{--{{ route('product.subCategories', $subCategories->id) }}--}}
-                                {{----}}
+                            {{--<a class="dropdown-item" href="#">{{ $subCategory->name }}</a>--}}
+                             {{--{{ route('product.subCategories', $subCategories->id) }}--}}
+
                             {{--@endforeach--}}
-                        {{--@endforeach--}}
-                    {{--</div>--}}
-
-
-
-
+                        @endforeach
                     </div>
+
                 </li>
 
                 <li class="nav-item">

@@ -44,9 +44,14 @@ class ClientController extends Controller
     {
         // get the product
         $product = Product::findOrFail($id);
+        $categories = Category::all();
+        $subCategories = SubCategories::all();
 
         //show the view and pass the product to it
-        return View('shop.show', compact('product'));
+        return View('shop.show')
+            ->with('product', $product)
+            ->with('categories', $categories)
+            ->with('subCategories', $subCategories);
     }
     public function getAddToCart(Request $request, $id){
         $product = Product::findOrFail($id);
