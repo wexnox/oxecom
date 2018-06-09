@@ -44,14 +44,15 @@ class ClientController extends Controller
     {
         $items = Category::where('id', $id)->with('product')->get();
 
-        foreach($items as $item) {
-
-            $value = [];
-
-            foreach ($item->product as $value) {
-                $value;
-            }
-        }
+//        dd($items);
+//        foreach($items as $item) {
+//
+//            $value = [];
+//
+//            foreach ($item->product as $value) {
+//                $value;
+//            }
+//        }
 
         return view('products.index', compact('items', 'value'));
 
