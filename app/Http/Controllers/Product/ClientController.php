@@ -41,15 +41,12 @@ class ClientController extends Controller
     }
 
     // TODO: Denna må da være litt feil på
-    public function indexCategories($id) {
-//        $products = Product::join('categories','category.id', '=', 'category_id')->get();
-        $products = Product::findOrFail($id);
-//        $category = Category::all();
+    public function menu($categoryId)
+    {
+        $items = Category::where('category_id', $categoryId)->get();
 
-        return view ('products.index')
-            ->with('product', $product)
-            ->with('categories', $categories)
-            ;
+        return view('category.lists', compact('items'));
+
     }
 
     public function show($id)
