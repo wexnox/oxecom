@@ -40,14 +40,6 @@ class ClientController extends Controller
 //        return view('shop.index',['products' => $products]);
     }
 
-    // TODO: Denna må da være litt feil på
-    public function menu($categoryId)
-    {
-        $items = Category::where('category_id', $categoryId)->get();
-
-        return view('category.lists', compact('items'));
-
-    }
 
     public function show($id)
     {

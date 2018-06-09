@@ -25,12 +25,8 @@ Route::get('/', [
         'as' => 'product.index']
 );
 
-Route::name('menu')->get('menu/{category}/{id}', 'MenuController@index');
+Route::name('menu')->get('menu/{category}/{id}', 'Product\ClientController@index');
 
-//Route::get('/category/{categories}', [
-//    'uses' => 'Product\ClientController@indexCategories',
-//    'as'=> 'products.index'
-]);
 
 Route::get('products/{id}',[
     'uses' => 'Product\ClientController@show',

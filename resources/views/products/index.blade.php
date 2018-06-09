@@ -25,7 +25,9 @@
         </tr>
         </thead>
         <tbody>
+
         @foreach($categories as $product)
+
             <tr>
                 <td><img id="showProduct" src="{{ $product['imagePath'] }}" alt="{{ $product['title'] }}"></td>
                 <td>{{ $product['title'] }}</td>
