@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 use App\Category;
+use View;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $categories = Category::all();
 
+        view()->share('categories', $categories);
     }
 
     /**

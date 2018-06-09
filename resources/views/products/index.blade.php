@@ -13,30 +13,34 @@
 
     {{--Todo: Table layout....... bytte om til Card!!!--}}
     <div class="col-md-11">
-    {{--<table class="table table-striped table-hover table-responsive">--}}
+        {{--<table class="table table-striped table-hover table-responsive">--}}
         <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">imagePath</th>
-            <th scope="col">title</th>
-            <th scope="col">discount_price</th>
-            <th></th>
-
-        </tr>
-        </thead>
-        <tbody>
-
-        @foreach($items as $item)
-
+            <thead class="thead-dark">
             <tr>
-                <td><img id="showProduct" src="{{ $item['imagePath'] }}" alt="{{ $item['title'] }}"></td>
-                <td>{{ $item['title'] }}</td>
-                <td>{{ $item['discount_price'] }}</td>
-                <td><a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $item->id] ) }}" role="button">Kjøp</a></td>
+                <th scope="col">imagePath</th>
+                <th scope="col">title</th>
+                <th scope="col">discount_price</th>
+                <th></th>
 
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($items as $key => $item)
+                <tr>
+                    @foreach($item ->product as $product)
+
+
+
+                        <td><img id="showProduct" src="{{ $product['imagePath'] }}" alt="{{ $product['title'] }}"></td>
+                        <td>{{ $product->title }}</td>
+                        <td>{{ $product['discount_price'] }}</td>
+                        <td><a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $product->id] ) }}" role="button">Kjøp</a></td>
+
+
+                    @endforeach
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
