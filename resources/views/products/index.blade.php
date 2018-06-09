@@ -26,13 +26,13 @@
         </thead>
         <tbody>
 
-        @foreach($categories as $product)
+        @foreach($items as $item)
 
             <tr>
-                <td><img id="showProduct" src="{{ $product['imagePath'] }}" alt="{{ $product['title'] }}"></td>
-                <td>{{ $product['title'] }}</td>
-                <td>{{ $product['discount_price'] }}</td>
-                <td><a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $product->id] ) }}" role="button">Kjøp</a></td>
+                <td><img id="showProduct" src="{{ $item['imagePath'] }}" alt="{{ $item['title'] }}"></td>
+                <td>{{ $item['title'] }}</td>
+                <td>{{ $item['discount_price'] }}</td>
+                <td><a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $item->id] ) }}" role="button">Kjøp</a></td>
 
             </tr>
         @endforeach

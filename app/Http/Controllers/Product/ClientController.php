@@ -22,7 +22,7 @@ use App\Models\SubCategories; // TODO: Må legge til subCategories
 class ClientController extends Controller
 {
     /** Shopping Cart **/
-
+    //Routing::URI = /, Name product.index
     public function getIndex(){
         $products = Product::all();
         $categories = Category::all();
@@ -39,6 +39,17 @@ class ClientController extends Controller
 
 //        return view('shop.index',['products' => $products]);
     }
+
+    public function index($id)
+    {
+
+        $items = Category::where('id', $id)->with('product')->get();
+
+//        dd($items);
+
+        return view('products.index', compact('items'));
+    }
+
 
 
     public function show($id)
