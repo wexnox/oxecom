@@ -24,10 +24,12 @@ Route::get('/', [
         'uses' => 'Product\ClientController@getIndex',
         'as' => 'product.index']
 );
-Route::get('/{name}',[
-    'uses' => 'Product\ClientController@indexProduct',
-    'as' => 'product.indexProduct'
+
+Route::get('/category/{categories}', [
+    'uses' => 'Product\ClientController@indexCategories',
+    'as'=> 'products.index'
 ]);
+
 Route::get('products/{id}',[
     'uses' => 'Product\ClientController@show',
     'as' => 'product.show'

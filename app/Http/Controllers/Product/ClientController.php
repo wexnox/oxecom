@@ -41,15 +41,17 @@ class ClientController extends Controller
     }
 
     // TODO: Denna må da være litt feil på
-    public function indexProduct(Request $request, $id) {
-        $products = Product::findOrFail($request);
-        $categories = Category::all();
-        $subCategories = SubCategories::all();
-        return view ('products.index', $products)
-            ->with(['products' => $products])
-            ->with(['categories' => $categories])
-            ->with(['subCategories' => $subCategories]);
+    public function indexCategories($id) {
+//        $products = Product::join('categories','category.id', '=', 'category_id')->get();
+        $products = Product::findOrFail($id);
+//        $category = Category::all();
+
+        return view ('products.index')
+            ->with('product', $product)
+            ->with('categories', $categories)
+            ;
     }
+
     public function show($id)
     {
         // get the product
@@ -58,7 +60,7 @@ class ClientController extends Controller
         $subCategories = SubCategories::all();
 
         //show the view and pass the product to it
-        return View('shop.show')
+        return View('products.show')
             ->with('product', $product)
             ->with('categories', $categories)
             ->with('subCategories', $subCategories);
