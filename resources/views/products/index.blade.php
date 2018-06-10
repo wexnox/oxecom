@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
 
-            @if(count($items) >= 1)
+            @if(count($items) >= 0)
                 <table class="table table-condensed table-hover">
 
                     <thead>
@@ -28,6 +28,7 @@
                         <th>Storage</th>
                         <th>Price</th>
                         <th></th>
+
                     </tr>
                     </thead>
 
@@ -41,11 +42,13 @@
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->description }}</td>
                                 @if(is_bool($product->in_stock) <= 1)
+                                   {{--TODO: ordne check--}}
                                     <td>In stock{{ $product->status }}</td>
                                 @else
                                     <td>Out of stock</td>
                                 @endif
                                 <td>Kr {{ $product->discount_price }},- <span class="text-small">Kr {{ $product->original_price }},-</span></td>
+                                <td><a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $product->id] ) }}" role="button">Kjøp</a></td>
                             </tr>
                         @endforeach
 
@@ -53,7 +56,7 @@
                     </tbody>
 
                 </table>
-            @else($items <- 0)
+            @else
 
                 <h6>No products in storage</h6>
 
