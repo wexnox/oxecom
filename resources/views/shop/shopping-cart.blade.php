@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     {{-- TODO: må legge til clear shopping cart--}}
-    {{-- TODO: Må legge til funksjonalitet for fjerning enkelte av varer--}}
+    {{-- TODO: styling. Legge til flere(lage + og - buttons i stedenfor?--}}
     @if(Session::has('cart'))
         <div class="row">
             <div class="col-sm-6 col-md6 col-md-offset-3 col-sm-offset-3">
@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total {{ $totalPris }}</strong>
+                <strong>Total {{ $totalPris }},-</strong>
             </div>
         </div>
         <hr>

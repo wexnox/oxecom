@@ -10,15 +10,11 @@
     @if (\Session::has('message'))
         <div class="alert alert-info">{{ \Session::get('message') }}</div>
     @endif
-
-
-
     {{--TODO: styling--}}
     <div class="container">
         <div class="row">
-
             @if(count($items) >= 0)
-                <table class="table table-condensed table-hover">
+                <table class="table table-hover table-responsive">
 
                     <thead>
                     <tr>
@@ -28,10 +24,8 @@
                         <th>Storage</th>
                         <th>Price</th>
                         <th></th>
-
                     </tr>
                     </thead>
-
                     <tbody>
 
                     @foreach($items as $item)
@@ -42,7 +36,7 @@
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->description }}</td>
                                 @if(is_bool($product->in_stock) <= 1)
-                                   {{--TODO: ordne check--}}
+                                    {{--TODO: ordne check--}}
                                     <td>In stock{{ $product->status }}</td>
                                 @else
                                     <td>Out of stock</td>
