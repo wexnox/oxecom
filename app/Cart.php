@@ -2,8 +2,6 @@
 
 namespace App;
 
-
-
 class Cart
 {
     public $items = null;
@@ -23,10 +21,6 @@ class Cart
         }
     }
 
-    /**
-     * @param $item
-     * @param $id
-     */
     public function add($item, $id)
     {
         $storedItem = ['qty' => 0, 'pris' => $item->pris, 'item' => $item];

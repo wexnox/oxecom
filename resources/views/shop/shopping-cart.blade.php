@@ -4,8 +4,6 @@
     Handlekurv
 @endsection
 @section('content')
-    {{-- TODO: må legge til clear shopping cart--}}
-    {{-- TODO: styling. Legge til flere(lage + og - buttons i stedenfor?--}}
     @if(Session::has('cart'))
         <div class="row">
             <div class="col-sm-6 col-md6 col-md-offset-3 col-sm-offset-3">
