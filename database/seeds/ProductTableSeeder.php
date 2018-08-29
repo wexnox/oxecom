@@ -13,7 +13,7 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = [ 'Hovedkort', 'Prosessor', 'Minnebrikker', 'Kontrollere', 'Skjermkort', 'Strømforsyning', 'Skjerm', 'Kabinett' ];
+        $categories = [ 'Hovedkort', 'Prosessor', 'Minnebrikker', 'Kontrollere', 'Skjermkort', 'Stromforsyning', 'Skjerm', 'Kabinett' ];
         foreach ( $categories as $category ) {
             # First fetch category Id
             $category        = DB::table( 'categories' )->where( 'name', '=', trim( strtolower( $category ) ) )->get();

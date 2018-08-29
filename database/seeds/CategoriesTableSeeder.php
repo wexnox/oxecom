@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = [ 'Hovedkort', 'Prosessor', 'Minnebrikker', 'Kontrollere', 'Skjermkort', 'Strømforsyning', 'Skjerm', 'Kabinett' ];
+        $categories = [ 'Hovedkort', 'Prosessor', 'Minnebrikker', 'Kontrollere', 'Skjermkort', 'Stromforsyning', 'Skjerm', 'Kabinett' ];
         foreach ( $categories as $category ) {
             DB::table( 'categories' )->insert( [
                 'name'       => trim( strtolower( $category ) ),
